@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swecha Login Form</title>
+    <style type="text/css" media="all">
+ *{
+   text-align: center;
+  margin: auto;
+   padding: 3px;
+ }
+ 
+ .one{
+    background-color: whitesmoke;
+    color: gray;
+  }
+  .req{
+    color: red;
+    margin-left: 1px;
+  }
+  #fname,#CO,#em,#mb{
+    width: 700px;
+  }
+  .dp,.cs,.two{
+    width: 705px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  #fname,#mb,#CO,#em {
+  display: block;
+  margin-bottom: 10px;
+  }
+    
+  .two{
+    border: 1px solid skyblue;
+    background-color: #C0E4F2;
+  }
+  
+  .closebtn {
+  margin-left: 15px;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  color: grey;
+  }
+
+</style>
+</head>
+<body> 
+   <div class="one">
+  <p style= "text-align:center" font-size:20px >Swecha AP Events</p><img width="350px" height="120px" src="Swecha.png">
+   </div>
+   <p style="font-size: 45px"><b>Swecha AP Summer Internship Program 2023</b></p><hr>
+   <form action="https://www.instagram.com/swechaap/" method="get" >
+     <label for="fname">Full Name<span class="req">*</span></label><br>
+     <input type="text" name="fname" id="fname" placeholder="Enter Name As Required In Certificate" required  /><br />
+     
+     <label for="gender" >Gender<span class="req">*</span></label><br>
+     <br />
+     <input type="radio" name="gender" id=""/>Female
+     <input type="radio" name="gender" id="gender"  /> Male
+     <input type="radio" name="gender" id="gender" />Non-Binary <br />
+     <br />
+      <label for="CO">College/Organization<span class="req">*</span></label><br>
+     <input type="text" name="CO" id="CO" required/><br />
+     
+      <label for="mb">Mobile Number<span class="req">*</span></label><br>
+       <input type="text" name="mb" id="mb" /><br />
+       
+      <label for="em">Email<span class="req">*</span></label><br>
+    <input type="text" name="Email" id="em" placeholder="Email Address"required/><br />
+    
+     
+      <label for="dp">Department<span class="req">*</span></label><br>
+     <select name="dp" class="dp">
+       <option disabled selected value="">-Select-</option>
+       <option value="CSE">CSE</option>
+       <option value="IT">IT</option>
+       <option value="ECE">ECE</option>
+       <option value="EEE">EEE</option>
+       <option value="MECH">MECH</option>
+       <option value="CIVIL">CIVIL</option>
+       <option value="CHEM">CHEM</option>
+      <option value="OTHERS">OTHERS</option>
+     </select><br />
+      
+      <label for="cs">Current Year Of Study<span class="req">*</span></label><br>
+     <select name="cs" class="cs">
+       <option disabled selected value="">-Select-</option>
+       <option value="1st year">1st Year</option>
+       <option value="2nd year">2nd Year</option>
+       <option value="3rd year">3rd Year</option>
+       <option value="4th year">4th Year</option>
+     </select><br />
+
+     <label for="inet">Mode of interest (Choose the highest capacity if you have multiple<span class="req">*</span> </label><br><br />
+   <input type="radio" name="inet" id="inet" />Broad Band
+     <input type="radio" name="inet" id="inet"  />Mobile Data
+   <input type="radio" name="inet" id="inet" />Both <br />
+   <br />
+    <label for="lap">Do you have laptop<span class="req">*</span></label><br><br />
+   <input type="radio" name="lap" id="lap" />Yes
+   <input type="radio" name="lap" id="lap" />No<br />
+   <br />
+    <label for="mode">Mode Of Internship<span class="req">*</span></label><br><br />
+    <input type="radio" name="mode" id="mode" />2 Weeks OFFLINE + Rest Online
+   <input type="radio" name="mode" id="mode" />Online <br />
+  <br />
+   <div class="two">
+     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;
+     </span>
+       <li>Internship Includes Industry Oriented Training, Tasks, Impact Sessions</li>
+       <li>Register for more details</li>
+   </div>
+   <br />
+   <input type="submit" name="register" id="register" value="Register" /><br />
+   <br /><br /><hr /><br />
+   <a href="">contact</a>
+   
+   </form>
+</body>
+
+</html>
