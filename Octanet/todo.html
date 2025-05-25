@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0");
+        background-size: cover;
+        background-position: center;
+      }
+
+      nav {
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      nav h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        padding-left: 10px;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.5); /* Increased transparency */
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        margin-top: 60px;
+        height: 500px; /* Increased height */
+        overflow-y: auto; /* Added overflow for scrolling */
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: #ffffff;
+      }
+
+      form {
+        display: flex;
+        margin-bottom: 1rem;
+      }
+
+      form input {
+        flex-grow: 1;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px 0 0 5px;
+        font-size: 1rem;
+      }
+
+      form button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: #28a745;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+        transition: background 0.3s;
+      }
+
+      form button:hover {
+        background: #218838;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      li.completed {
+        text-decoration: line-through;
+        color: #aaa;
+      }
+
+      li:hover {
+        background: #f1f1f1;
+      }
+
+      li label {
+        flex-grow: 1;
+        padding: 0 0.5rem;
+      }
+
+      li input[type="checkbox"] {
+        margin-left: auto;
+      }
+
+      .refresh-btn {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        background: #dc3545;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .refresh-btn:hover {
+        background: #c82333;
+      }
+
+      @media (max-width: 480px) {
+        form {
+          flex-direction: column;
+        }
+
+        form input,
+        form button {
+          border-radius: 5px;
+        }
+
+        form button {
+          margin-top: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1>To-Do List</h1>
+    </nav>
+    <div class="container">
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Enter a new task" />
+        <button type="submit">Add</button>
+      </form>
+      <ul id="todo-list"></ul>
+      <button class="refresh-btn" id="refresh-btn">Refresh</button>
+    </div>
+    <script>
+      const todoForm = document.getElementById("todo-form");
+      const todoInput = document.getElementById("todo-input");
+      const todoList = document.getElementById("todo-list");
+      const refreshBtn = document.getElementById("refresh-btn");
+
+      todoForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const task = todoInput.value.trim();
+        if (task) {
+          const li = document.createElement("li");
+          const label = document.createElement("label");
+          label.textContent = task;
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.addEventListener("change", () => {
+            li.classList.toggle("completed");
+          });
+          li.appendChild(label);
+          li.appendChild(checkbox);
+          todoList.appendChild(li);
+          todoInput.value = "";
+        }
+      });
+
+      refreshBtn.addEventListener("click", function () {
+        todoList.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>
